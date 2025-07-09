@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.lawyerapp.LawyerApp.controller.AppointmentController">
+
+    <Label text="GESTIONE APPUNTAMENTO" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="10" vgap="10" style="-fx-padding: 20;">
+        <Label text="Data:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="datePicker" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="200"/>
+
+        <Label text="Ora:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <HBox GridPane.rowIndex="1" GridPane.columnIndex="1" spacing="5">
+            <ComboBox fx:id="hourCombo" prefWidth="80" promptText="HH"/>
+            <Label text=":" style="-fx-padding: 5 0 0 0;"/>
+            <ComboBox fx:id="minuteCombo" prefWidth="80" promptText="MM"/>
+        </HBox>
+
+        <Label text="Nome:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="nameField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Cognome:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="surnameField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="N. Procedimento:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="caseNumberField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+        <Label text="Tribunale:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <TextField fx:id="courtField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+        <Label text="Note:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <TextArea fx:id="notesArea" GridPane.rowIndex="6" GridPane.columnIndex="1" prefHeight="100"/>
+
+        <HBox GridPane.rowIndex="7" GridPane.columnIndex="1" spacing="10" style="-fx-padding: 10 0 0 0;">
+            <Button fx:id="saveButton" text="Salva" onAction="#handleSave"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 80;"/>
+            <Button fx:id="cancelButton" text="Annulla" onAction="#handleCancel"
+                    style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 80;"/>
+        </HBox>
+    </GridPane>
+</VBox>

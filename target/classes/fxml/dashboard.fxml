@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Region?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.lawyerapp.LawyerApp.controller.DashboardController"
+            prefWidth="1150" prefHeight="768" stylesheets="@../css/style.css"
+            styleClass="login-root">
+
+    <StackPane alignment="CENTER" AnchorPane.topAnchor="15" AnchorPane.leftAnchor="15"
+               prefHeight="100" prefWidth="100">
+        <Circle radius="40" fill="white" styleClass="logo-circle"/>
+        <ImageView fx:id="logoImageView" fitHeight="70" fitWidth="70" preserveRatio="true">
+            <image>
+                <Image url="@/img/prova.png" />
+            </image>
+        </ImageView>
+    </StackPane>
+
+    <VBox alignment="TOP_CENTER" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <Label text="LawyerApp - Gestione Appuntamenti" styleClass="main-title-label"/>
+    </VBox>
+
+    <HBox spacing="0" AnchorPane.topAnchor="40" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+        <VBox prefWidth="200" style="-fx-padding: 20;" alignment="TOP_CENTER" spacing="15">
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button fx:id="newAppointmentButton" text="New"
+                    onAction="#handleNewAppointment"
+                    styleClass="primary-button"
+                    prefWidth="150" prefHeight="40"/>
+
+            <Button fx:id="printButton" text="Stampa"
+                    onAction="#handlePrint"
+                    styleClass="primary-button"
+                    prefWidth="150" prefHeight="40"/>
+
+            <Button fx:id="logoutButton" text="Logout"
+                    onAction="#handleLogout"
+                    styleClass="danger-button"
+                    prefWidth="150" prefHeight="40"/>
+        </VBox>
+
+        <VBox fx:id="mainContent" spacing="20" HBox.hgrow="ALWAYS" style="-fx-padding: 20; -fx-fill-height: true;">
+           <VBox fx:id="tableSection" spacing="5" styleClass="app-container" VBox.vgrow="ALWAYS">
+               <HBox alignment="CENTER_LEFT" spacing="10">
+                   <Label text="Lista Appuntamenti" styleClass="section-title-label-small"/>
+                   <Region HBox.hgrow="ALWAYS"/>
+                   <Button fx:id="toggleTableButton" styleClass="icon-button" onAction="#handleToggleTable">
+                       <graphic>
+                           <ImageView fx:id="tableIcon" fitHeight="20" fitWidth="20" />
+                       </graphic>
+                   </Button>
+               </HBox>
+
+               <AnchorPane fx:id="tableContainer" VBox.vgrow="ALWAYS">
+                   <TableView fx:id="appointmentsTable" styleClass="table-view"
+                              AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                              AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                       <columns>
+                           <TableColumn fx:id="dateColumn" text="Data" prefWidth="100"/>
+                           <TableColumn fx:id="timeColumn" text="Ora" prefWidth="80"/>
+                           <TableColumn fx:id="nameColumn" text="Nome" prefWidth="120"/>
+                           <TableColumn fx:id="surnameColumn" text="Cognome" prefWidth="120"/>
+                           <TableColumn fx:id="caseColumn" text="N. Procedimento" prefWidth="120"/>
+                           <TableColumn fx:id="courtColumn" text="Tribunale" prefWidth="150"/>
+                           <TableColumn fx:id="notesColumn" text="Note" prefWidth="200"/>
+                           <TableColumn fx:id="actionColumn" text="Azioni" prefWidth="80" styleClass="action-column"/>
+                       </columns>
+                       <columnResizePolicy>
+                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                       </columnResizePolicy>
+                   </TableView>
+               </AnchorPane>
+           </VBox>
+
+           <VBox fx:id="searchContainer" spacing="5" styleClass="app-container"> <Label text="Ricerca Appuntamenti" styleClass="section-title-label"/>
+
+               <GridPane hgap="15" vgap="2"> <columnConstraints>
+                       <ColumnConstraints percentWidth="20" halignment="RIGHT"/>
+                       <ColumnConstraints percentWidth="30"/>
+                       <ColumnConstraints percentWidth="20" halignment="RIGHT"/>
+                       <ColumnConstraints percentWidth="30"/>
+                   </columnConstraints>
+
+                   <Label text="Data:" styleClass="search-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                   <TextField fx:id="searchDate" promptText="Data" styleClass="text-input-field" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                   <Label text="N. Procedimento:" styleClass="search-label" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                   <TextField fx:id="searchCaseNumber" promptText="N. proc." styleClass="text-input-field" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                   <Label text="Ora:" styleClass="search-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                   <TextField fx:id="searchTime" promptText="Ora" styleClass="text-input-field" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                   <Label text="Tribunale:" styleClass="search-label" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                   <TextField fx:id="searchCourt" promptText="Tribunale" styleClass="text-input-field" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                   <Label text="Nome:" styleClass="search-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                   <TextField fx:id="searchName" promptText="Nome" styleClass="text-input-field" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                   <Label text="Cognome:" styleClass="search-label" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                   <TextField fx:id="searchSurname" promptText="Cognome" styleClass="text-input-field" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+               </GridPane>
+
+               <HBox alignment="CENTER_RIGHT" style="-fx-padding: 5 0 0 0;"> <Button fx:id="searchButton" text="Cerca" onAction="#handleSearch"
+                           styleClass="primary-button" prefWidth="120" prefHeight="35"/>
+               </HBox>
+           </VBox>
+        </VBox>
+    </HBox>
+</AnchorPane>

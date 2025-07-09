@@ -1,0 +1,530 @@
+/* Stile globale per la root dell'applicazione */
+.root {
+    -fx-font-family: 'Segoe UI', 'Inter', Helvetica, Arial, sans-serif;
+    -fx-background-color: #F8F9FA; /* Sfondo molto chiaro, quasi bianco per un look moderno */
+    -fx-text-fill: #2C2C2C;
+}
+
+/* Container principale per sezioni dell'app (es. box tabella, box ricerca) */
+.app-container {
+    -fx-background-color: white;
+    -fx-padding: 25; /* Padding leggermente ridotto per un aspetto più compatto */
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 20, 0.0, 0, 8); /* Ombra più pronunciata ma morbida */
+}
+
+/* Titoli Generici (per Dashboard e Form) */
+.main-title-label { /* Titolo principale dell'app (es. LawyerApp - Gestione Appuntamenti) */
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2C2C2C;
+    -fx-padding: 0 0 20px 0;
+}
+
+.section-title-label { /* Titoli per sezioni (es. Lista Appuntamenti, Ricerca Appuntamenti) */
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2C2C2C;
+    -fx-padding: 0 0 10px 0;
+}
+
+/* Campi di input generici (TextField, DatePicker, etc. - per dashboard/appuntamento) */
+.text-input-field {
+    -fx-pref-height: 38px;
+    -fx-padding: 8 12;
+    -fx-border-color: #DDE2E7;
+    -fx-border-radius: 6;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #9CA3AF;
+}
+
+.text-input-field:focused {
+    -fx-border-color: #4582C5;
+    -fx-border-width: 2px;
+}
+
+/* Stile base per tutti i pulsanti personalizzati della tua applicazione */
+.custom-app-button {
+    -fx-cursor: hand;
+    -fx-padding: 10 20;
+    -fx-border-color: transparent;
+    -fx-background-radius: 8;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: white;
+    -fx-background-color: #2A4B6A; /* Blu scuro più ricco e profondo */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0.0, 0, 5);
+    -fx-transition-duration: 0.3s;
+}
+
+.custom-app-button:hover {
+    -fx-background-color: #4582C5; /* Un blu più vibrante e invitante al passaggio del mouse */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.18), 10, 0.0, 0, 7);
+}
+
+.custom-app-button:pressed {
+    -fx-background-color: #3567A2; /* Colore più scuro al click */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 5, 0.0, 0, 2);
+}
+
+/* Pulsanti specifici per tipo di azione (per dashboard e form) */
+.primary-button { /* Usato per Nuovo, Stampa, Cerca (se vuoi il blu standard) */
+    -fx-background-color: #2A4B6A;
+    -fx-text-fill: white; /* Assicuriamo che il testo sia sempre bianco */
+    -fx-font-size: 14px; /* Mantieni la dimensione del font coerente */
+    -fx-font-weight: 600; /* Leggermente più grassetto per visibilità */
+    -fx-padding: 10px 22px; /* Aumentato leggermente il padding per un aspetto più pieno */
+    -fx-background-radius: 6px; /* Bordi leggermente arrotondati */
+    -fx-border-color: transparent; /* Nessun bordo visibile */
+    -fx-cursor: hand; /* Indica che è cliccabile */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0.0, 0, 4); /* Ombra leggera */
+    -fx-transition: -fx-background-color 0.2s ease-in-out, -fx-effect 0.2s ease-in-out; /* Transizione fluida */
+}
+
+.primary-button:hover {
+    -fx-background-color: #4582C5;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 12, 0.0, 0, 6); /* Ombra leggermente più pronunciata all'hover */
+}
+
+.primary-button:pressed {
+    -fx-background-color: #3567A2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0.0, 0, 2); /* Ombra ridotta al click per un effetto "premuto" */
+}
+
+.danger-button { /* Usato per Logout, Annulla, Elimina */
+    -fx-background-color: #DC3545; /* Rosso per azioni pericolose */
+    -fx-text-fill: white; /* Assicuriamo che il testo sia sempre bianco */
+    -fx-font-size: 14px; /* Mantieni la dimensione del font coerente */
+    -fx-font-weight: 600; /* Leggermente più grassetto per visibilità */
+    -fx-padding: 10px 22px; /* Aumentato leggermente il padding per un aspetto più pieno */
+    -fx-background-radius: 6px; /* Bordi leggermente arrotondati */
+    -fx-border-color: transparent; /* Nessun bordo visibile */
+    -fx-cursor: hand; /* Indica che è cliccabile */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0.0, 0, 4); /* Ombra leggera */
+    -fx-transition: -fx-background-color 0.2s ease-in-out, -fx-effect 0.2s ease-in-out; /* Transizione fluida */
+}
+
+.danger-button:hover {
+    -fx-background-color: #C82333;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 12, 0.0, 0, 6); /* Ombra leggermente più pronunciata all'hover */
+}
+
+.danger-button:pressed {
+    -fx-background-color: #BD2130;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0.0, 0, 2); /* Ombra ridotta al click per un effetto "premuto" */
+}
+
+.success-button { /* Usato per Salva */
+    -fx-background-color: #28A745; /* Verde per azioni di successo */
+}
+
+.success-button:hover {
+    -fx-background-color: #218838;
+}
+
+.success-button:pressed {
+    -fx-background-color: #1E7E34;
+}
+
+/* Stili specifici per i bottoni di login e registrazione se diversi dal custom-app-button base */
+.login-button {
+    -fx-pref-width: 160px;
+    -fx-font-size: 16px;
+    -fx-padding: 12 25;
+    -fx-background-color: #2A4B6A; /* Aggiunto per dargli un colore base */
+    -fx-text-fill: white;
+}
+.login-button:hover {
+    -fx-background-color: #4582C5;
+}
+.login-button:pressed {
+    -fx-background-color: #3567A2;
+}
+
+
+.registration-button {
+    -fx-min-width: 220px;
+    -fx-max-width: 220px;
+    -fx-pref-height: 34px;
+    -fx-font-size: 14px;
+    -fx-background-radius: 4px;
+    -fx-background-color: #2A4B6A; /* Aggiunto per dargli un colore base */
+    -fx-text-fill: white;
+}
+.registration-button:hover {
+    -fx-background-color: #4582C5;
+}
+.registration-button:pressed {
+    -fx-background-color: #3567A2;
+}
+
+
+/* --- Stile per la vista tabella (TableView) - Migliorato --- */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 5;
+    -fx-table-cell-border-color: transparent;
+    -fx-selection-bar: #EBF2FA;
+    -fx-selection-bar-non-focused: #F5F8FC;
+    -fx-font-size: 13px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 10, 0.0, 0, 4);
+}
+
+.table-view .table-cell {
+    -fx-padding: 10 12;
+    -fx-border-color: transparent;
+    -fx-text-fill: #333;
+    -fx-alignment: CENTER_LEFT; /* Allineamento a sinistra per testo */
+    -fx-pref-height: 55px; /* Altezza adeguata per icone e testo */
+    -fx-min-height: 55px;
+    -fx-max-height: 55px;
+}
+
+.table-view .table-column#actionColumn .table-cell {
+    -fx-alignment: CENTER; /* Mantieni centrata la colonna Azioni */
+}
+
+.table-view .column-header .label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #F8FBFD;
+}
+
+.table-row-cell:filled:selected,
+.table-row-cell:filled:selected:hover {
+    -fx-background-color: #EBF2FA;
+    -fx-text-fill: #2C2C2C;
+}
+
+.table-row-cell {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-padding: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #E8E8E8, #D8D8D8);
+    -fx-border-radius: 10 10 0 0;
+    -fx-padding: 0 0 2px 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-pref-height: 45px;
+}
+
+/* --- FINE STILE TABELLA --- */
+
+/* --- Componenti di LOGIN (Originali utente) --- */
+.login-root {
+    -fx-background-color: linear-gradient(to bottom,
+        #d9f8ff 0%,
+        #d9f8ff 70%,
+        #99dbff 100%
+    );
+    -fx-padding: 40;
+}
+
+.login-form-panel {
+    -fx-background-color: rgba(255, 255, 255, 0.75);
+    -fx-background-radius: 12;
+    -fx-padding: 35 40 35 40;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 20, 0.0, 0, 10);
+    -fx-max-width: 350;
+}
+
+.login-title { /* Questo è il "ACCESSO AVVOCATI" */
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2C2C2C;
+    -fx-padding: 0 0 15 0;
+}
+
+.login-input-field {
+    -fx-pref-height: 40px;
+    -fx-padding: 8 12;
+    -fx-border-color: #DDE2E7;
+    -fx-border-radius: 6;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #9CA3AF;
+}
+
+.login-input-field:focused {
+    -fx-border-color: #4582C5;
+    -fx-border-width: 2px;
+}
+
+.register-link {
+    -fx-text-fill: #4e73df;
+    -fx-underline: true;
+    -fx-font-size: 14px;
+    -fx-padding: 10 0 0 0;
+}
+
+.register-link:hover {
+    -fx-text-fill: #375bb7;
+}
+
+/* --- FINE Componenti di LOGIN --- */
+
+
+/* --- Componenti specifici per la REGISTRAZIONE (Originali utente) --- */
+.registration-root { /* Background della schermata di registrazione */
+    -fx-background-color: #f8f9fc;
+    -fx-padding: 20px;
+}
+
+/* NOTA: .form-container verrà usato nell'FXML per il "contenitore bianco" della registrazione */
+.form-container {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 30px 35px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 0, 3, 10, 0);
+    -fx-min-width: 320px;
+    -fx-max-width: 320px;
+}
+
+.title-label { /* Questo titolo era per la registrazione, mantenuto come .title-label */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-padding: 0 0 10px 0;
+}
+
+.fields-container { /* Per i campi della registrazione, mantenuto */
+    -fx-padding: 0 0 10px 0;
+    -fx-min-width: 220px;
+    -fx-max-width: 220px;
+}
+
+.registration-input { /* Campi input registrazione, mantenuto */
+    -fx-pref-height: 32px;
+    -fx-min-width: 220px;
+    -fx-max-width: 220px;
+    -fx-font-size: 13px;
+    -fx-padding: 0 10px;
+    -fx-background-radius: 4px;
+    -fx-border-color: #d1d3e2;
+    -fx-border-radius: 4px;
+    -fx-border-width: 1px;
+}
+
+.registration-input:focused {
+    -fx-border-color: #4e73df;
+    -fx-border-width: 1.5px;
+}
+
+/* --- FINE Componenti REGISTRAZIONE --- */
+
+
+/* --- Componenti per il Form Appuntamento (Originali utente) --- */
+.appointment-root {
+    -fx-background-color: #F0F4F7;
+    -fx-padding: 30;
+}
+
+.form-title { /* Titolo specifico per il form appuntamento, mantenuto */
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2C2C2C;
+    -fx-padding: 0 0 15px 0;
+}
+
+.form-panel { /* Pannello del form appuntamento, mantenuto */
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 20, 0.0, 0, 10);
+    -fx-max-width: 500px;
+}
+
+.form-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555;
+    -fx-font-weight: 500;
+}
+
+.form-input-field {
+    -fx-pref-height: 38px;
+    -fx-padding: 8 12;
+    -fx-border-color: #DDE2E7;
+    -fx-border-radius: 6;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #9CA3AF;
+}
+
+.form-input-field:focused {
+    -fx-border-color: #4582C5;
+    -fx-border-width: 2px;
+}
+
+.form-textarea-field {
+    -fx-pref-height: 120px;
+    -fx-pref-width: 280px;
+    -fx-padding: 8 12;
+    -fx-border-color: #DDE2E7;
+    -fx-border-radius: 6;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #9CA3AF;
+    -fx-wrap-text: true;
+}
+
+.form-textarea-field:focused {
+    -fx-border-color: #4582C5;
+    -fx-border-width: 2px;
+}
+
+/* --- FINE Componenti Form Appuntamento --- */
+
+
+/* --- COMBOBOX (Originali utente) --- */
+.combo-box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d1d3e2;
+    -fx-border-radius: 4px;
+    -fx-padding: 5px;
+}
+
+.combo-box:hover {
+    -fx-border-color: #bac8f3;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: #4e73df;
+    -fx-background-radius: 0 4px 4px 0;
+}
+
+.combo-box .arrow {
+    -fx-background-color: white;
+}
+/* --- FINE COMBOBOX --- */
+
+
+/* --- RICERCA (Dashboard - con adattamenti) --- */
+.box-ricerca { /* Usato per il pannello di ricerca nella dashboard, mantenuto */
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 6, 0.2, 0, 2);
+    -fx-spacing: 10;
+}
+
+.search-title { /* Titolo della sezione ricerca, ora usa section-title-label in FXML */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 0 0 5px 0;
+    -fx-text-fill: #333;
+}
+
+.search-section {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 4px;
+    -fx-padding: 10px;
+}
+
+.search-field { /* Campi di input ricerca, ora usano text-input-field in FXML */
+    -fx-font-size: 13px;
+    -fx-pref-height: 28px;
+    -fx-pref-width: 140px;
+}
+
+.search-label {
+    -fx-font-size: 13px;
+    -fx-padding: 0 5px 0 0;
+}
+/* --- FINE RICERCA --- */
+
+/* --- COMPONENTI SPECIALI (Icone, Password Field) --- */
+/* Pulsante icona (specifico per le icone modifica/elimina nella tabella) */
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0; /* Rimosso il padding per dare più spazio all'ImageView */
+    -fx-cursor: hand;
+    -fx-pref-width: 40px; /* Dimensione fissa del pulsante per contenere l'icona */
+    -fx-pref-height: 40px;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-max-width: 40px;
+    -fx-max-height: 40px;
+}
+
+.icon-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.05); /* Leggero sfondo al hover */
+    -fx-background-radius: 4px;
+    -fx-opacity: 1; /* Nessuna opacità per un feedback chiaro */
+}
+
+.icon-button:pressed {
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Immagine logo */
+.logo-circle {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 8, 0.2, 2, 2);
+}
+
+/* Campo password con toggle visibilità */
+.password-field-container {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-alignment: center-right;
+}
+
+.eye-button, .eye-off-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 0 8 0 8;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 2, 0, 0, 1);
+}
+
+.eye-button:hover, .eye-off-button:hover,
+.eye-button:pressed, .eye-off-button:pressed {
+    -fx-background-color: transparent;
+    -fx-opacity: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 2, 0, 0, 1);
+}
+
+.section-title-label-small {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* ... il tuo CSS esistente ... */
+
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-padding: 5;
+    -fx-background-radius: 5;
+    -fx-alignment: CENTER; /* Assicura che l'icona sia centrata nel pulsante */
+}
+
+.icon-button:hover {
+    -fx-background-color: #e0e0e0; 
+    -fx-cursor: hand;
+}
+
+.fullscreen-icon-label {
+    -fx-font-family: "Font Awesome 5 Free"; /* Assicurati che questo font sia caricato */
+    -fx-font-size: 18px;
+    -fx-fill: #3f51b5; /* Colore dell'icona, puoi cambiarlo */
+    -fx-text-fill: #3f51b5; /* Per FontAwesome, usa text-fill */
+}
+
+/* Stile opzionale per la root della finestra a schermo intero, per dare un background coerente */
+.fullscreen-table-root {
+    -fx-background-color: #f4f7f6; /* Sfondo simile al resto dell'app */
+    -fx-padding: 20px; /* Spazio intorno alla tabella a schermo intero */
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.lawyerapp.LawyerApp.controller.AuthController"
+      styleClass="login-root">
+
+    <!-- Logo -->
+    <StackPane alignment="CENTER" prefHeight="150" prefWidth="150">
+        <Circle radius="70" fill="white" styleClass="logo-circle"/>
+        <ImageView fx:id="logoImageView" fitHeight="120" fitWidth="120" preserveRatio="true">
+            <image>
+                <Image url="@/img/prova.png" />
+            </image>
+        </ImageView>
+    </StackPane>
+
+    <!-- Form -->
+    <VBox alignment="CENTER" spacing="15" styleClass="login-form-panel">
+        <padding>
+            <Insets top="35" right="40" bottom="35" left="40"/>
+        </padding>
+
+        <Label text="ACCESSO AVVOCATI" styleClass="login-title"/>
+
+        <VBox spacing="10">
+            <TextField fx:id="usernameField" promptText="Username" styleClass="login-input-field"/>
+
+            <!-- Campo password con occhio integrato a destra -->
+            <StackPane fx:id="passwordPane" styleClass="password-field-container">
+                <!-- Campo password nascosto -->
+                <PasswordField fx:id="passwordField" promptText="Password" styleClass="login-input-field"/>
+                <!-- Campo password visibile -->
+                <TextField fx:id="visiblePasswordField" promptText="Password" styleClass="login-input-field" visible="false" managed="false"/>
+                
+                <!-- Pulsante occhio -->
+                <Button fx:id="togglePasswordButton" onAction="#togglePasswordVisibility"
+                        styleClass="eye-button" StackPane.alignment="CENTER_RIGHT">
+                    <graphic>
+                        <ImageView fx:id="eyeIcon" fitHeight="18" fitWidth="18">
+                            <image>
+                                <Image url="@/img/eye.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </StackPane>
+        </VBox>
+
+        <Button fx:id="loginButton" text="Accedi" onAction="#handleLogin" styleClass="login-button"/>
+        <Hyperlink fx:id="registerLink" text="Crea un nuovo account" onAction="#handleRegister" styleClass="register-link"/>
+    </VBox>
+</VBox>
