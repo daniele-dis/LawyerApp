@@ -1,2 +1,2 @@
 # LawyerApp
-This is a repo of a project that i and my co-worker, worked. on.  Desktop App that allows you to keep track of appointments with the possibility of having reports as PDFs and appointment alerts for the following days.
+This is a repo of a project that i and my co-worker, worked. on.  Desktop App that allows you to keep track of appointments with the possibility of having reports as PDFs and appointment alerts for the following days. It was fun because we had to meet some requests, so it wasn't a free choice. We chose to use JavaFx, with the related pom.xml that contained the dependencies, then the various screens in the form of .fxml files and various .css files to make everything nice and presentable.
